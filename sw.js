@@ -1,0 +1,1 @@
+self.addEventListener('install',e=>self.skipWaiting());self.addEventListener('activate',e=>self.clients.claim());self.addEventListener('fetch',e=>{e.respondWith(caches.open('kd1').then(c=>fetch(e.request).then(r=>{if(r.ok&&e.request.method==='GET')c.put(e.request,r.clone());return r}).catch(()=>c.match(e.request))))});
